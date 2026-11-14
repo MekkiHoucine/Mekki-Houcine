@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكي حسين - مرشح حركة البناء الوطني - بلدية غسول 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #0b6e4f;
+            --secondary-green: #149b6e;
+            --accent-gold: #d4af37;
+            --light-bg: #f4f7f6;
+            --dark-text: #1e2a24;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-gold);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* ==================== شريط التنقل ==================== */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-green);
+        }
+
+        .navbar-brand .party-logo-placeholder {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 800;
+            font-size: 0.9rem;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar-links a {
+            font-weight: 600;
+            color: var(--dark-text);
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .navbar-links a:hover { color: var(--secondary-green); }
+
+        /* ==================== قسم البطل ==================== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #064a34 100%);
+            color: var(--white);
+            padding: 80px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .hero-content { position: relative; z-index: 2; }
+
+        .hero .party-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero .party-badge span {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero .candidate-title {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .hero .slogan {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin: 25px 0 35px;
+            padding: 15px 30px;
+            border-top: 2px solid rgba(212, 175, 55, 0.4);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+            display: inline-block;
+        }
+
+        .hero .election-date {
+            background: var(--white);
+            color: var(--primary-green);
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* ==================== قسم من هو مكي حسين ==================== */
+        .about-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* تنسيق حاوية الصورة */
+        .about-image-wrapper {
+            position: relative;
+            border-radius: var(--radius);
+            padding: 10px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border: 3px solid var(--accent-gold); /* إطار ذهبي أنيق */
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        /* تنسيق الصورة نفسها */
+        .candidate-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: calc(var(--radius) - 5px);
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .about-text .highlight {
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        /* ==================== قسم البرنامج الانتخابي ==================== */
+        .program-section {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .program-intro {
+            max-width: 850px;
+            margin: 0 auto 50px;
+            text-align: center;
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-right: 5px solid var(--accent-gold);
+        }
+
+        .program-intro p {
+            font-size: 1.05rem;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--accent-gold);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+
+        .program-card-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--white);
+            padding: 22px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .program-card-header .icon {
+            font-size: 2rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .program-card-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .program-card-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .program-item {
+            padding: 12px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .program-item:last-child { border-bottom: none; }
+
+        .program-item-title {
+            font-weight: 700;
+            color: var(--primary-green);
+            font-size: 1rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .program-item-title::before {
+            content: '◈';
+            color: var(--accent-gold);
+            font-size: 1rem;
+            flex-shrink: 0;
+            line-height: 1.5;
+        }
+
+        .program-item-desc {
+            color: #555;
+            font-size: 0.93rem;
+            line-height: 1.7;
+            padding-right: 20px;
+        }
+
+        /* ==================== قسم لماذا مكي حسين ==================== */
+        .why-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .why-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .why-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: var(--radius);
+        }
+
+        .why-item .check {
+            color: var(--secondary-green);
+            font-weight: 800;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .why-item p {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        /* ==================== قسم بلدية غسول ==================== */
+        .ghassoul-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-green), #064a34);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .ghassoul-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        .ghassoul-section p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.9;
+        }
+
+        .ghassoul-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-item .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .stat-item .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ==================== التذييل ==================== */
+        .footer {
+            background: #0a1f18;
+            color: rgba(255,255,255,0.7);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer .party-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .footer .slogan {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer .copyright {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* ==================== التجاوب ==================== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .slogan { font-size: 1.1rem; padding: 10px 15px; }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-image-wrapper { max-width: 280px; margin: 0 auto 30px; }
+            .navbar-links { display: none; }
+            .ghassoul-stats { gap: 30px; }
+            .program-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <div class="">حركة البناء الوطني</div>
+                <span>بلدية غسول</span>
+            </div>
+            <div class="navbar-links">
+                <a href="#about">من هو المترشح</a>
+                <a href="#program">البرنامج</a>
+                <a href="#why">لماذا مكي حسين</a>
+                <a href="#ghassoul">غسول</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم البطل -->
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="party-badge">
+                <span></span>
+                مرشح حركة البناء الوطني
+            </div>
+            <h1>مكي حسين</h1>
+            <p class="candidate-title">مترشح لانتخابات المجلس الشعبي البلدي</p>
+            <p class="candidate-title">بلدية غسول - ولاية البيض</p>
+            <div class="slogan">"معاً نواصل البناء"</div>
+            <div class="election-date">السبت 28 نوفمبر 2026</div>
+        </div>
+    </header>
+
+    <!-- قسم من هو المترشح -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">من هو مكي حسين؟</h2>
+            <p class="section-subtitle">ابن غسول، من أجل غسول</p>
+            <div class="about-grid">
+                <!-- تم استبدال الصورة الرمزية بالصورة الحقيقية هنا -->
+                <div class="https://scontent.floo1-1.fna.fbcdn.net/v/t39.30808-6/503998347_4029869323945399_9124565129276515566_n.jpg?stp=dst-jpg_tt6&cstp=mx853x854&ctp=s853x854&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=_Eya0Y45q0YQ7kNvwE-E9YG&_nc_oc=AdqrIaROUxrnwzx32esjpB4GNNW46Z1VU7lZcnGiQdOIQoyMt23MVKoV6cFCHUCuoDw&_nc_zt=23&_nc_ht=scontent.floo1-1.fna&_nc_gid=nqqra9T_a4qliMhIS_wErg&_nc_ss=7b2a8&oh=00_AQRIBjBji8EOX0eiFbKgJjhF_wP4sQpPBUb4rwjqjyDtKA&oe=6AFEC2CF">
+                    <img src="candidate.jpg" alt="المترشح مكي حسين" class="candidate-photo">
+                </div>
+                
+                <div class="about-text">
+                    <h2>مكي حسين</h2>
+                    <p>
+                        رجل ميدان وابن من أبناء <span class="highlight">بلدية غسول</span>، نشأ وترعرع بين أهلها وعرف همومهم عن قرب.
+                        يحمل في وجدانه حب هذه الأرض الطيبة وسكانها الكرام، ويؤمن بأن التنمية المحلية تبدأ من الاستماع للمواطن والعمل الميداني الجاد.
+                    </p>
+                    <p>
+                        ينتمي مكي حسين إلى <span class="highlight">حركة البناء الوطني</span>، التي تتبنى قيم الوسطية والاعتدال وخدمة المجتمع.
+                        ويخوض هذه التجربة الانتخابية تحت شعار <strong>"معاً نواصل البناء"</strong>، حاملاً برنامجاً واقعياً يلامس احتياجات المواطن اليومية في غسول.
+                    </p>
+                    <p>
+                        يلتزم مكي حسين بالعمل على:
+                    </p>
+                    <p>✅ تحسين الخدمات العمومية الأساسية (المياه، الصرف الصحي، النظافة)</p>
+                    <p>✅ دعم الفلاحة المحلية وتربية المواشي وزراعة النعناع</p>
+                    <p>✅ فتح قنوات تواصل دائمة مع شباب وشيوخ البلدية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم البرنامج الانتخابي -->
+    <section class="program-section" id="program">
+        <div class="container">
+            <h2 class="section-title">البرنامج الانتخابي</h2>
+            <p class="section-subtitle">رؤية واقعية.. لتنمية محلية شاملة ومستدامة</p>
+
+            <div class="program-intro">
+                <p>
+                    انطلاقاً من انشغالاتكم اليومية وطموحاتنا المشتركة للنهوض بمنطقتنا، نضع بين أيديكم
+                    التزاماتنا العملية ضمن محاور واضحة قابلة للتجسيد على أرض الميدان.
+                </p>
+            </div>
+
+            <div class="program-grid">
+
+                <!-- المحور 1 -->
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <span class="icon">🏠</span>
+                        <h3>1. السكن والبناء الريفي</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <div class="program-item">
+                            <div class="program-item-title">توسيع حصص البناء الريفي</div>
+                            <div class="program-item-desc">
+                                العمل على رفع حصة البلدية من إعانات البناء الريفي وتبسيط إجراءات الحصول عليها.
+                            </div>
+                        </div>
+                        <div class="program-item">
+                            <div class="program-item-title">توفير الأوعية العقارية</div>
+                            <div class="program-item-desc">
+                                تهيئة تحصيصات اجتماعية وريفية موجهة للشباب والعائلات ذات الدخل المحدود، مع ضمان ربطها بمختلف الشبكات الحيوية (الماء، الكهرباء، الغاز، والصرف الصحي).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- المحور 2 -->
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <span class="icon">💧</span>
+                        <h3>2. الفلاحة والموارد المائية</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <div class="program-item">
+                            <div class="program-item-title">حل جذري لمشكل عين غسول</div>
+                            <div class="program-item-desc">
+                                وضع مخطط تقني مستعجل لصيانة وتأهيل منبع "عين غسول" لضمان تدفق المياه وتوزيعها بعدالة ونجاعة سواء للشرب أو للسقي الفلاحي.
+                            </div>
+                        </div>
+                        <div class="program-item">
+                            <div class="program-item-title">دعم الفلاحين</div>
+                            <div class="program-item-desc">
+                                مرافقة الفلاحين في استصلاح الأراضي، فتح المسالك الفلاحية، وتسهيل حصولهم على الكهرباء الفلاحية والدعم التقني لتطوير الإنتاج المحلي.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- المحور 3 -->
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <span class="icon">🛣️</span>
+                        <h3>3. التهيئة العمرانية والمرافق العمومية</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <div class="program-item">
+                            <div class="program-item-title">تزفيت الطرقات وتهيئة الأرصفة</div>
+                            <div class="program-item-desc">
+                                إطلاق برنامج واسع لتعبيد الطرق المهترئة، فك العزلة عن الأحياء والقرى المجاورة، وتهيئة الأرصفة والإنارة العمومية لتحسين الوجه الجمالي للمدينة.
+                            </div>
+                        </div>
+                        <div class="program-item">
+                            <div class="program-item-title">مكتبة عمومية للمطالعة</div>
+                            <div class="program-item-desc">
+                                إنجاز وتجهيز مكتبة بلدية عصرية تكون فضاءً للطلبة والباحثين ومحبي القراءة، وتحتضن الأنشطة الثقافية والفكرية.
+                            </div>
+                        </div>
+                        <div class="program-item">
+                            <div class="program-item-title">محطة لنقل المسافرين</div>
+                            <div class="program-item-desc">
+                                إنشاء وتنظيم محطة برية لنقل المسافرين تتوفر على شروط الراحة والأمن لتنظيم حركة المرور وتسهيل تنقل المواطنين.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- المحور 4 -->
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <span class="icon">🏭</span>
+                        <h3>4. الاقتصاد والتشغيل</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <div class="program-item">
+                            <div class="program-item-title">إعادة بعث مشروع مصنع الآجر</div>
+                            <div class="program-item-desc">
+                                المرافعة الجادة لدى السلطات الولائية والمركزية لرفع العراقيل وإعادة تشغيل مشروع مصنع الآجر المتوقف، باعتباره ركيزة اقتصادية ستوفر عشرات مناصب الشغل المباشرة وغير المباشرة لشباب المنطقة.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- المحور 5 -->
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <span class="icon">🏛️</span>
+                        <h3>5. التراث والسياحة</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <div class="program-item">
+                            <div class="program-item-title">برنامج لترميم القصر القديم</div>
+                            <div class="program-item-desc">
+                                تصنيف وحماية القصر القديم كمعلم تاريخي، وإطلاق أشغال ترميم تحافظ على طابعه المعماري الأصيل لتحويله إلى قطب ثقافي وسياحي يخلق حركية اقتصادية بالمنطقة.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- المحور 6 -->
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <span class="icon">👨‍👩‍👧‍👦</span>
+                        <h3>6. الشباب والتعليم والنقل</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <div class="program-item">
+                            <div class="program-item-title">الشباب والرياضة</div>
+                            <div class="program-item-desc">
+                                تهيئة الملاعب الجوارية ودعم الجمعيات الرياضية والثقافية لاحتواء طاقات الشباب.
+                            </div>
+                        </div>
+                        <div class="program-item">
+                            <div class="program-item-title">قطاع التعليم</div>
+                            <div class="program-item-desc">
+                                تحسين ظروف التمدرس من خلال صيانة المدارس الابتدائية، توفير التدفئة، وتحسين نوعية الوجبات في المطاعم المدرسية.
+                            </div>
+                        </div>
+                        <div class="program-item">
+                            <div class="program-item-title">النقل</div>
+                            <div class="program-item-desc">
+                                تدعيم خطوط النقل الحضري وشبه الحضري، وتوفير النقل المدرسي الكافي لتلاميذ المناطق النائية.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم لماذا مكي حسين -->
+    <section class="why-section" id="why">
+        <div class="container">
+            <h2 class="section-title">لماذا مكي حسين؟</h2>
+            <p class="section-subtitle">لأن غسول تستحق ممثلاً صادقاً في خدمتها</p>
+            <div class="why-list">
+                <div class="why-item">
+                    <span class="check">✔</span>
+                    <p>ابن البلد ويعرف احتياجاتها الحقيقية</p>
+                </div>
+                <div class="why-item">
+                    <span class="check">✔</span>
+                    <p>برنامج انتخابي واقعي بعيداً عن الوعود المستحيلة</p>
+                </div>
+                <div class="why-item">
+                    <span class="check">✔</span>
+                    <p>قريب من الناس، يستمع قبل أن يتكلم</p>
+                </div>
+                <div class="why-item">
+                    <span class="check">✔</span>
+                    <p>مدعوم من حركة البناء الوطني صاحبة التجربة في التسيير المحلي</p>
+                </div>
+                <div class="why-item">
+                    <span class="check">✔</span>
+                    <p>ملتزم بالشفافية والمحاسبة في التسيير البلدي</p>
+                </div>
+                <div class="why-item">
+                    <span class="check">✔</span>
+                    <p>سيعمل مع كل الطاقات الحية في غسول دون إقصاء</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم بلدية غسول -->
+    <section class="ghassoul-section" id="ghassoul">
+        <div class="container">
+            <h2>بلدية غسول</h2>
+            <p>
+                تقع بلدية غسول جنوب ولاية البيض، وتبعد عنها بحوالي 43 كلم، وتتربع على مساحة 557 كلم مربع.
+                يبلغ عدد سكانها حوالي 10 آلاف نسمة، وتشتهر بتربية الماشية وزراعة النعناع الذي يُعد من أجود الأنواع محلياً ووطنياً.
+                غسول أرض الطيبة والكرم، وأهلها يستحقون تنمية حقيقية تليق بهم.
+            </p>
+            <div class="ghassoul-stats">
+                <div class="stat-item">
+                    <span class="number">557</span>
+                    <span class="label">كلم² مساحة البلدية</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">+10</span>
+                    <span class="label">آلاف نسمة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">43</span>
+                    <span class="label">كلم عن مقر الولاية</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="container">
+            <div class="party-name">حركة البناء الوطني</div>
+            <div class="slogan">"معاً نواصل البناء"</div>
+            <p style="margin-bottom: 10px;">مكي حسين - مرشح بلدية غسول - انتخابات 28 نوفمبر 2026</p>
+            <p class="copyright">© 2026 جميع الحقوق محفوظة - صفحة المترشح مكي حسين</p>
+        </div>
+    </footer>
+
+</body>
+</html>
