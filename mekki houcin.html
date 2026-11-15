@@ -1,758 +1,1061 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكي حسين - مرشح حركة البناء الوطني - بلدية غسول 2026</title>
+    <title>مكي حسين | مترشح حركة البناء الوطني - المجلس الشعبي البلدي لبلدية غسول</title>
+    <!-- تحميل Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- تحميل خط Cairo و Tajawal من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-green: #0b6e4f;
-            --secondary-green: #149b6e;
-            --accent-gold: #d4af37;
-            --light-bg: #f4f7f6;
-            --dark-text: #1e2a24;
-            --white: #ffffff;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            --radius: 12px;
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- تحميل مكتبة أيقونات Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        binaa: {
+                            green: '#16803c',
+                            emerald: '#065f46',
+                            dark: '#042f2e',
+                            lime: '#65a30d',
+                            gold: '#f59e0b',
+                            sun: '#fbbf24',
+                            red: '#dc2626',
+                        }
+                    }
+                }
+            }
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--dark-text);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-green);
-            margin-bottom: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--accent-gold);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        /* ==================== شريط التنقل ==================== */
-        .navbar {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary-green);
-        }
-
-        .navbar-brand .party-logo-placeholder {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 800;
-            font-size: 0.9rem;
-            border: 2px solid var(--accent-gold);
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .navbar-links a {
-            font-weight: 600;
-            color: var(--dark-text);
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-
-        .navbar-links a:hover { color: var(--secondary-green); }
-
-        /* ==================== قسم البطل ==================== */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-green) 0%, #064a34 100%);
-            color: var(--white);
-            padding: 80px 0 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 50%;
-        }
-
-        .hero-content { position: relative; z-index: 2; }
-
-        .hero .party-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255,255,255,0.15);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .hero .party-badge span {
-            width: 10px;
-            height: 10px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-        }
-
-        .hero .candidate-title {
-            font-size: 1.3rem;
-            font-weight: 400;
-            opacity: 0.9;
-            margin-bottom: 10px;
-        }
-
-        .hero .slogan {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            margin: 25px 0 35px;
-            padding: 15px 30px;
-            border-top: 2px solid rgba(212, 175, 55, 0.4);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
-            display: inline-block;
-        }
-
-        .hero .election-date {
-            background: var(--white);
-            color: var(--primary-green);
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        /* ==================== قسم من هو مكي حسين ==================== */
-        .about-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        /* تنسيق حاوية الصورة */
-        .about-image-wrapper {
-            position: relative;
-            border-radius: var(--radius);
-            padding: 10px;
-            background: var(--white);
-            box-shadow: var(--shadow);
-            border: 3px solid var(--accent-gold); /* إطار ذهبي أنيق */
-            max-width: 350px;
-            margin: 0 auto;
-        }
-
-        /* تنسيق الصورة نفسها */
-        .candidate-photo {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: calc(var(--radius) - 5px);
-            object-fit: cover;
-        }
-
-        .about-text h2 {
-            font-size: 2rem;
-            color: var(--primary-green);
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-
-        .about-text p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-            color: #444;
-        }
-
-        .about-text .highlight {
-            color: var(--primary-green);
-            font-weight: 700;
-        }
-
-        /* ==================== قسم البرنامج الانتخابي ==================== */
-        .program-section {
-            padding: 80px 0;
-            background: var(--light-bg);
-        }
-
-        .program-intro {
-            max-width: 850px;
-            margin: 0 auto 50px;
-            text-align: center;
-            background: var(--white);
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border-right: 5px solid var(--accent-gold);
-        }
-
-        .program-intro p {
-            font-size: 1.05rem;
-            color: #444;
-            font-weight: 500;
-        }
-
-        .program-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 25px;
-        }
-
-        .program-card {
-            background: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 5px solid var(--accent-gold);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .program-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-        }
-
-        .program-card-header {
-            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-            color: var(--white);
-            padding: 22px 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .program-card-header .icon {
-            font-size: 2rem;
-            line-height: 1;
-            flex-shrink: 0;
-        }
-
-        .program-card-header h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        .program-card-body {
-            padding: 25px;
-            flex-grow: 1;
-        }
-
-        .program-item {
-            padding: 12px 0;
-            border-bottom: 1px dashed #e0e0e0;
-        }
-
-        .program-item:last-child { border-bottom: none; }
-
-        .program-item-title {
-            font-weight: 700;
-            color: var(--primary-green);
-            font-size: 1rem;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .program-item-title::before {
-            content: '◈';
-            color: var(--accent-gold);
-            font-size: 1rem;
-            flex-shrink: 0;
-            line-height: 1.5;
-        }
-
-        .program-item-desc {
-            color: #555;
-            font-size: 0.93rem;
-            line-height: 1.7;
-            padding-right: 20px;
-        }
-
-        /* ==================== قسم لماذا مكي حسين ==================== */
-        .why-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .why-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .why-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            padding: 20px;
-            background: var(--light-bg);
-            border-radius: var(--radius);
-        }
-
-        .why-item .check {
-            color: var(--secondary-green);
-            font-weight: 800;
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-
-        .why-item p {
-            font-weight: 600;
-            color: var(--dark-text);
-        }
-
-        /* ==================== قسم بلدية غسول ==================== */
-        .ghassoul-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-green), #064a34);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .ghassoul-section h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--accent-gold);
-        }
-
-        .ghassoul-section p {
-            max-width: 800px;
-            margin: 0 auto 20px;
-            font-size: 1.1rem;
-            opacity: 0.95;
-            line-height: 1.9;
-        }
-
-        .ghassoul-stats {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item { text-align: center; }
-
-        .stat-item .number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            display: block;
-            line-height: 1.2;
-        }
-
-        .stat-item .label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* ==================== التذييل ==================== */
-        .footer {
-            background: #0a1f18;
-            color: rgba(255,255,255,0.7);
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .footer .party-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 10px;
-        }
-
-        .footer .slogan {
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .footer .copyright {
-            font-size: 0.85rem;
-            opacity: 0.6;
-        }
-
-        /* ==================== التجاوب ==================== */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero .slogan { font-size: 1.1rem; padding: 10px 15px; }
-            .about-grid { grid-template-columns: 1fr; text-align: center; }
-            .about-image-wrapper { max-width: 280px; margin: 0 auto 30px; }
-            .navbar-links { display: none; }
-            .ghassoul-stats { gap: 30px; }
-            .program-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    </script>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-600 selection:text-white">
 
-    <!-- شريط التنقل -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-brand">
-                <div class="">حركة البناء الوطني</div>
-                <span>بلدية غسول</span>
-            </div>
-            <div class="navbar-links">
-                <a href="#about">من هو المترشح</a>
-                <a href="#program">البرنامج</a>
-                <a href="#why">لماذا مكي حسين</a>
-                <a href="#ghassoul">غسول</a>
+    <!-- 1. شريط التنقل العلوي (Header & Navigation) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- شعار الحزب واسم المترشح -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-full bg-white p-1 border-2 border-emerald-600/30 shadow-sm flex items-center justify-center overflow-hidden group-hover:scale-105 transition">
+                        <img src="logo.png" onerror="this.src='https://raw.githubusercontent.com/MekkiHoucine/Mekki-Houcine/refs/heads/main/Slide1.png'" alt="شعار حركة البناء الوطني" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-950 leading-tight">حركة البناء الوطني</span>
+                            <span class="w-2 h-2 rounded-full bg-red-600 inline-block"></span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-0.5">
+                            <span class="text-xs font-bold text-emerald-700">مكي حسين • غسول</span>
+                            <span class="hidden sm:inline-flex items-center gap-1 bg-amber-100 text-emerald-950 border border-amber-300 text-[11px] font-black px-2 py-0.5 rounded-md">
+                                قائمة 04 • رقم 03
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- روابط التنقل للشاشات الكبيرة -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-bold text-slate-700">
+                    <a href="#home" class="hover:text-emerald-700 transition py-2">الرئيسية</a>
+                    <a href="#about" class="hover:text-emerald-700 transition py-2">كلمة المترشح</a>
+                    <a href="#program" class="hover:text-emerald-700 transition py-2">البرنامج التنموي</a>
+                    <a href="#poll" class="hover:text-emerald-700 transition py-2">أولويات غسول</a>
+                    <a href="#events" class="hover:text-emerald-700 transition py-2">اللقاءات الجوارية</a>
+                </nav>
+
+                <!-- زر بارز + زر القائمة للهواتف -->
+                <div class="flex items-center gap-2.5">
+                    <button onclick="openActionModal('join')" class="bg-gradient-to-l from-emerald-700 to-emerald-600 hover:from-emerald-800 hover:to-emerald-700 text-white font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center gap-2 border-b-2 border-amber-400">
+                        <i data-lucide="megaphone" class="w-4 h-4 text-amber-300"></i>
+                        <span>شارك برأيك / انضم للحملة</span>
+                    </button>
+                    <button id="mobile-menu-btn" aria-label="القائمة" class="lg:hidden p-2.5 rounded-xl text-emerald-950 hover:bg-emerald-50 transition">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </nav>
 
-    <!-- قسم البطل -->
-    <header class="hero">
-        <div class="container hero-content">
-            <div class="party-badge">
-                <span></span>
-                مرشح حركة البناء الوطني
-            </div>
-            <h1>مكي حسين</h1>
-            <p class="candidate-title">مترشح لانتخابات المجلس الشعبي البلدي</p>
-            <p class="candidate-title">بلدية غسول - ولاية البيض</p>
-            <div class="slogan">"معاً نواصل البناء"</div>
-            <div class="election-date">السبت 28 نوفمبر 2026</div>
+        <!-- القائمة المنسدلة للهواتف -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-2 shadow-xl">
+            <a href="#home" class="mobile-link block px-4 py-2.5 rounded-xl font-bold text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">الرئيسية</a>
+            <a href="#about" class="mobile-link block px-4 py-2.5 rounded-xl font-bold text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">كلمة المترشح</a>
+            <a href="#program" class="mobile-link block px-4 py-2.5 rounded-xl font-bold text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">البرنامج التنموي</a>
+            <a href="#poll" class="mobile-link block px-4 py-2.5 rounded-xl font-bold text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">أولويات غسول</a>
+            <a href="#events" class="mobile-link block px-4 py-2.5 rounded-xl font-bold text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">اللقاءات الجوارية</a>
         </div>
     </header>
 
-    <!-- قسم من هو المترشح -->
-    <section class="about-section" id="about">
-        <div class="container">
-            <h2 class="section-title">من هو مكي حسين؟</h2>
-            <p class="section-subtitle">ابن غسول، من أجل غسول</p>
-            <div class="about-grid">
-                <!-- تم استبدال الصورة الرمزية بالصورة الحقيقية هنا -->
-                <div class="https://scontent.floo1-1.fna.fbcdn.net/v/t39.30808-6/503998347_4029869323945399_9124565129276515566_n.jpg?stp=dst-jpg_tt6&cstp=mx853x854&ctp=s853x854&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=_Eya0Y45q0YQ7kNvwE-E9YG&_nc_oc=AdqrIaROUxrnwzx32esjpB4GNNW46Z1VU7lZcnGiQdOIQoyMt23MVKoV6cFCHUCuoDw&_nc_zt=23&_nc_ht=scontent.floo1-1.fna&_nc_gid=nqqra9T_a4qliMhIS_wErg&_nc_ss=7b2a8&oh=00_AQRIBjBji8EOX0eiFbKgJjhF_wP4sQpPBUb4rwjqjyDtKA&oe=6AFEC2CF">
-                    <img src="candidate.jpg" alt="المترشح مكي حسين" class="candidate-photo">
+    <!-- 2. القسم الرئيسي (Hero Section) -->
+    <section id="home" class="relative bg-gradient-to-bl from-emerald-950 via-emerald-900 to-teal-950 text-white overflow-hidden py-14 lg:py-22">
+        <!-- تأثيرات إضاءة مستوحاة من ألوان الشعار (أخضر، أصفر شمسي، ولمسة حمراء) -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-amber-400/20 blur-3xl"></div>
+            <div class="absolute top-1/3 right-10 w-80 h-80 rounded-full bg-emerald-400/15 blur-3xl"></div>
+            <div class="absolute -bottom-16 left-1/3 w-72 h-72 rounded-full bg-red-600/15 blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <!-- المحتوى النصي -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    <!-- شارة الحزب والقائمة ورقم المترشح -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+                        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-amber-400/30 px-4 py-2 rounded-full text-amber-300 text-xs sm:text-sm font-bold shadow-sm">
+                            <img src="logo.png" onerror="this.style.display='none'" alt="شعار الحزب" class="w-5 h-5 rounded-full bg-white p-0.5 object-contain">
+                            <span>حزب حركة البناء الوطني • بلدية غسول</span>
+                        </div>
+                        <div class="inline-flex items-center gap-2 bg-amber-400 text-emerald-950 px-4 py-2 rounded-full text-xs sm:text-sm font-black shadow-md">
+                            <span>القائمة رقم 04</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+                            <span>المترشح رقم 03</span>
+                        </div>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
+                        معاً نبني <span class="text-amber-400">غسول الغد..</span>
+                        <span class="block mt-2 text-emerald-200 text-2xl sm:text-3xl lg:text-4xl font-extrabold">رؤية شبابية وطموح صادق</span>
+                    </h1>
+
+                    <p class="text-slate-100/90 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        المترشح <strong class="text-amber-300 font-extrabold">مكي حسين</strong> (رقم <strong class="text-white">03</strong>) عن <strong class="text-white">حزب حركة البناء الوطني</strong> (القائمة رقم <strong class="text-amber-300">04</strong>) لانتخابات المجلس الشعبي البلدي لبلدية <strong class="text-amber-300">غسول</strong>. نضع كفاءتنا وطاقتنا الشبابية في خدمة التنمية المحلية والنهوض بمرافق بلديتنا العزيزة.
+                    </p>
+
+                    <!-- بطاقة دليل التصويت السريع -->
+                    <div class="bg-white/10 backdrop-blur-md border border-amber-400/40 rounded-2xl p-4 max-w-xl mx-auto lg:mx-0 flex items-center justify-between gap-4 shadow-lg">
+                        <div class="flex items-center gap-3 text-right">
+                            <div class="w-12 h-12 rounded-xl bg-amber-400 text-emerald-950 flex flex-col items-center justify-center shrink-0 font-black leading-none shadow">
+                                <span class="text-[10px] font-bold">قائمة</span>
+                                <span class="text-xl">04</span>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-amber-300 font-bold">دليل يوم الاقتراع ببلدية غسول</span>
+                                <span class="block text-sm sm:text-base font-black text-white">حركة البناء الوطني • القائمة رقم 04</span>
+                            </div>
+                        </div>
+                        <div class="bg-red-600 text-white px-3.5 py-2 rounded-xl text-center shrink-0 border border-white/20 shadow">
+                            <span class="block text-[10px] font-bold opacity-90">رقم المترشح</span>
+                            <span class="block text-xl font-black leading-none mt-0.5">03</span>
+                        </div>
+                    </div>
+
+                    <!-- أزرار تفاعلية -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-1">
+                        <a href="#ballot-guide" class="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-emerald-950 font-extrabold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-amber-400/20 transition flex items-center justify-center gap-2">
+                            <i data-lucide="check-square" class="w-5 h-5"></i>
+                            <span>بطاقة التصويت (04 / 03)</span>
+                        </a>
+                        <a href="#program" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/25 text-white font-bold px-7 py-3.5 rounded-xl transition flex items-center justify-center gap-2">
+                            <i data-lucide="compass" class="w-5 h-5 text-amber-400"></i>
+                            <span>البرنامج الانتخابي</span>
+                        </a>
+                    </div>
+
+                    <!-- ركائز الالتزام -->
+                    <div class="grid grid-cols-3 gap-3 sm:gap-6 pt-6 border-t border-white/15 max-w-xl mx-auto lg:mx-0">
+                        <div class="bg-white/5 rounded-2xl p-3 text-center lg:text-right border border-white/10">
+                            <div class="text-lg sm:text-xl font-extrabold text-amber-400">القرب</div>
+                            <div class="text-xs text-emerald-100">تواصل مباشر مع السكان</div>
+                        </div>
+                        <div class="bg-white/5 rounded-2xl p-3 text-center lg:text-right border border-white/10">
+                            <div class="text-lg sm:text-xl font-extrabold text-amber-400">البناء</div>
+                            <div class="text-xs text-emerald-100">مشاريع تنموية واقعية</div>
+                        </div>
+                        <div class="bg-white/5 rounded-2xl p-3 text-center lg:text-right border border-white/10">
+                            <div class="text-lg sm:text-xl font-extrabold text-amber-400">الشفافية</div>
+                            <div class="text-xs text-emerald-100">تسيير محلي نزيه وفعال</div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="about-text">
-                    <h2>مكي حسين</h2>
-                    <p>
-                        رجل ميدان وابن من أبناء <span class="highlight">بلدية غسول</span>، نشأ وترعرع بين أهلها وعرف همومهم عن قرب.
-                        يحمل في وجدانه حب هذه الأرض الطيبة وسكانها الكرام، ويؤمن بأن التنمية المحلية تبدأ من الاستماع للمواطن والعمل الميداني الجاد.
-                    </p>
-                    <p>
-                        ينتمي مكي حسين إلى <span class="highlight">حركة البناء الوطني</span>، التي تتبنى قيم الوسطية والاعتدال وخدمة المجتمع.
-                        ويخوض هذه التجربة الانتخابية تحت شعار <strong>"معاً نواصل البناء"</strong>، حاملاً برنامجاً واقعياً يلامس احتياجات المواطن اليومية في غسول.
-                    </p>
-                    <p>
-                        يلتزم مكي حسين بالعمل على:
-                    </p>
-                    <p>✅ تحسين الخدمات العمومية الأساسية (المياه، الصرف الصحي، النظافة)</p>
-                    <p>✅ دعم الفلاحة المحلية وتربية المواشي وزراعة النعناع</p>
-                    <p>✅ فتح قنوات تواصل دائمة مع شباب وشيوخ البلدية</p>
+
+                <!-- صورة المترشح الأولى (photo_2026-10-24_23-00-57.jpg) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 sm:w-80 lg:w-[370px]">
+                        <!-- هالة لونية خلف الإطار -->
+                        <div class="absolute -inset-3 bg-gradient-to-tr from-emerald-500 via-amber-400 to-red-500 rounded-3xl opacity-35 blur-md"></div>
+                        
+                        <div class="relative bg-gradient-to-b from-slate-100 to-emerald-50 rounded-3xl overflow-hidden border-2 border-amber-400/50 shadow-2xl">
+                            <!-- شارة علوية داخل البطاقة -->
+                            <div class="bg-emerald-950/95 backdrop-blur-md px-4 py-2.5 flex items-center justify-between border-b border-amber-400/30">
+                                <span class="text-xs font-extrabold text-amber-300">القائمة رقم 04</span>
+                                <span class="text-xs font-black bg-red-600 text-white px-2.5 py-0.5 rounded-full shadow-sm">المترشح رقم 03</span>
+                            </div>
+
+                            <!-- الصورة الأولى للمترشح -->
+                            <div class="relative pt-4 px-2 bg-gradient-to-b from-white via-slate-50 to-emerald-100/60">
+                                <img 
+                                    src="Slide2.jpg" 
+                                    onerror="this.src='https://github.com/MekkiHoucine/Mekki-Houcine/blob/main/Slide2.jpg?raw=true'" 
+                                    alt="المترشح مكي حسين - حركة البناء الوطني" 
+                                    class="w-full h-[380px] sm:h-[420px] object-cover object-top drop-shadow-xl"
+                                >
+                            </div>
+
+                            <!-- بطاقة التعريف السفلية -->
+                            <div class="bg-emerald-950 p-4 text-center border-t-2 border-amber-400 flex items-center justify-between gap-3">
+                                <div class="text-right">
+                                    <h2 class="font-black text-lg text-white leading-tight">الأستاذ مكي حسين</h2>
+                                    <p class="text-amber-300 text-xs font-bold mt-0.5">حركة البناء الوطني • بلدية غسول</p>
+                                </div>
+                                <div class="w-11 h-11 rounded-full bg-white p-1 shrink-0 shadow">
+                                    <img src="logo.png" onerror="this.style.display='none'" alt="شعار حركة البناء الوطني" class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم البرنامج الانتخابي -->
-    <section class="program-section" id="program">
-        <div class="container">
-            <h2 class="section-title">البرنامج الانتخابي</h2>
-            <p class="section-subtitle">رؤية واقعية.. لتنمية محلية شاملة ومستدامة</p>
+    <!-- 2.5 قسم بطاقة دليل التصويت (كيف تصوّت؟) -->
+    <section id="ballot-guide" class="py-12 bg-emerald-50/70 border-b border-emerald-200/70">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border-2 border-emerald-600/20 overflow-hidden">
+                <div class="bg-gradient-to-l from-emerald-900 to-emerald-800 px-6 py-4 text-white flex flex-col sm:flex-row items-center justify-between gap-2">
+                    <div class="flex items-center gap-2.5">
+                        <i data-lucide="vote" class="w-6 h-6 text-amber-400"></i>
+                        <h2 class="text-lg sm:text-xl font-black">دليل الناخب يوم الاقتراع • بلدية غسول</h2>
+                    </div>
+                    <span class="text-xs font-bold bg-white/15 px-3 py-1 rounded-full text-amber-200">المجلس الشعبي البلدي</span>
+                </div>
 
-            <div class="program-intro">
-                <p>
-                    انطلاقاً من انشغالاتكم اليومية وطموحاتنا المشتركة للنهوض بمنطقتنا، نضع بين أيديكم
-                    التزاماتنا العملية ضمن محاور واضحة قابلة للتجسيد على أرض الميدان.
+                <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <!-- بطاقة الورقة الانتخابية التوضيحية -->
+                    <div class="md:col-span-7 bg-slate-50 rounded-2xl border-2 border-slate-300 p-4 sm:p-5 shadow-inner">
+                        <div class="flex items-center justify-between pb-3 mb-3 border-b-2 border-slate-200">
+                            <div class="flex items-center gap-3">
+                                <img src="logo.png" onerror="this.style.display='none'" alt="شعار حركة البناء الوطني" class="w-12 h-12 rounded-full bg-white p-1 border border-slate-200 object-contain">
+                                <div>
+                                    <span class="block text-xs font-bold text-slate-500">الجمهورية الجزائرية الديمقراطية الشعبية</span>
+                                    <h3 class="text-base sm:text-lg font-black text-emerald-950">حزب حركة البناء الوطني</h3>
+                                </div>
+                            </div>
+                            <div class="bg-emerald-700 text-white px-3.5 py-2 rounded-xl text-center shadow">
+                                <span class="block text-[10px] font-bold text-amber-200">القائمة رقم</span>
+                                <span class="block text-2xl font-black leading-none">04</span>
+                            </div>
+                        </div>
+
+                        <!-- التسلسل الرسمي لمترشحي القائمة 04 مع تمييز رقم 03 والمحاكاة التفاعلية -->
+                        <div class="space-y-2.5 text-sm" id="ballot-candidates-list">
+                            <!-- المترشح 01 -->
+                            <div onclick="simulateBallotMark(1, 'خروجي علي')" class="ballot-row cursor-pointer flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white hover:bg-emerald-50/60 border border-slate-200 text-slate-800 transition">
+                                <div class="flex items-center gap-3">
+                                    <span class="bg-emerald-800 text-white text-xs font-black px-2.5 py-1 rounded-lg">01</span>
+                                    <div>
+                                        <span class="font-extrabold text-sm sm:text-base block leading-tight">خروجي علي</span>
+                                        <span class="text-[11px] font-bold text-emerald-700">متصدر القائمة رقم 04</span>
+                                    </div>
+                                </div>
+                                <div id="ballot-box-1" class="w-7 h-7 rounded-lg bg-slate-50 border-2 border-slate-300 flex items-center justify-center text-emerald-700 transition"></div>
+                            </div>
+
+                            <!-- المترشحة 02 -->
+                            <div onclick="simulateBallotMark(2, 'حساني فضيلة')" class="ballot-row cursor-pointer flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white hover:bg-emerald-50/60 border border-slate-200 text-slate-800 transition">
+                                <div class="flex items-center gap-3">
+                                    <span class="bg-emerald-800 text-white text-xs font-black px-2.5 py-1 rounded-lg">02</span>
+                                    <div>
+                                        <span class="font-extrabold text-sm sm:text-base block leading-tight">حساني فضيلة</span>
+                                        <span class="text-[11px] font-bold text-slate-500">مترشحة القائمة رقم 04</span>
+                                    </div>
+                                </div>
+                                <div id="ballot-box-2" class="w-7 h-7 rounded-lg bg-slate-50 border-2 border-slate-300 flex items-center justify-center text-emerald-700 transition"></div>
+                            </div>
+
+                            <!-- الصف المميز للمترشح مكي حسين رقم 03 -->
+                            <div onclick="simulateBallotMark(3, 'مكي حسين')" class="ballot-row cursor-pointer flex items-center justify-between px-3.5 py-3 rounded-xl bg-amber-100/95 border-2 border-red-600 text-emerald-950 shadow-sm transition">
+                                <div class="flex items-center gap-3">
+                                    <span class="bg-red-600 text-white text-xs font-black px-2.5 py-1 rounded-lg shadow-sm">03</span>
+                                    <div>
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <span class="font-black text-base block leading-tight">مكي حسين</span>
+                                            <span class="bg-emerald-900 text-amber-300 text-[10px] font-extrabold px-2 py-0.5 rounded-full">مرشحكم</span>
+                                        </div>
+                                        <span class="text-[11px] font-bold text-emerald-800">مترشح المجلس الشعبي البلدي - غسول</span>
+                                    </div>
+                                </div>
+                                <div id="ballot-box-3" class="w-7 h-7 rounded-lg bg-white border-2 border-red-600 flex items-center justify-center text-red-600 font-black shadow-xs transition">
+                                    <i data-lucide="check" class="w-5 h-5 stroke-[3]"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p id="ballot-feedback" class="mt-3 text-xs font-bold text-emerald-800 bg-emerald-100/70 px-3 py-2 rounded-lg text-center">
+                            تم التأشير التوضيحي على الرقم 03 (مكي حسين) ضمن القائمة رقم 04 — اضغط على أي خانة لتجربة التأشير.
+                        </p>
+                    </div>
+
+                    <!-- خطوات التصويت السريعة -->
+                    <div class="md:col-span-5 space-y-4">
+                        <h3 class="text-lg font-black text-slate-900">فريق القائمة رقم 04 ببلدية غسول:</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            كفاءات محلية متكاملة بقيادة متصدر القائمة <strong class="text-emerald-900">خروجي علي (01)</strong>، والأستاذة <strong class="text-emerald-900">حساني فضيلة (02)</strong>، والأستاذ <strong class="text-red-700">مكي حسين (03)</strong> لخدمة ساكنة غسول.
+                        </p>
+                        <div class="space-y-3 pt-1">
+                            <div class="flex items-start gap-3">
+                                <span class="w-7 h-7 rounded-full bg-emerald-700 text-white text-xs font-black flex items-center justify-center shrink-0 mt-0.5">1</span>
+                                <p class="text-sm text-slate-700 font-medium">اختر ورقة <strong class="text-emerald-800">حزب حركة البناء الوطني</strong> الحاملة لـ <strong class="bg-amber-200 text-emerald-950 px-1.5 py-0.5 rounded">القائمة رقم 04</strong>.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="w-7 h-7 rounded-full bg-red-600 text-white text-xs font-black flex items-center justify-center shrink-0 mt-0.5">2</span>
+                                <p class="text-sm text-slate-700 font-medium">ضع علامة التصويت في الخانة المقابلة لـ <strong class="text-red-700">رقم المترشح 03 (مكي حسين)</strong>.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="w-7 h-7 rounded-full bg-amber-500 text-emerald-950 text-xs font-black flex items-center justify-center shrink-0 mt-0.5">3</span>
+                                <p class="text-sm text-slate-700 font-medium">ضع الورقة في الظرف وأودعها في الصندوق لخدمة تنمية بلدية غسول.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. قسم كلمة المترشح والرؤية (About & Message) -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- بطاقة الصورة الثانية للمترشح (photo_2026-10-24_23-00-51.jpg) -->
+                <div class="lg:col-span-5 order-2 lg:order-1">
+                    <div class="relative max-w-md mx-auto">
+                        <div class="absolute -bottom-4 -right-4 w-full h-full rounded-3xl bg-emerald-600/10 border-2 border-emerald-600/20"></div>
+                        <div class="relative bg-gradient-to-br from-slate-100 via-white to-emerald-50 rounded-3xl overflow-hidden border border-slate-200 shadow-xl">
+                            <img 
+                                src="Slide3.jpg" 
+                                onerror="this.src='https://github.com/MekkiHoucine/Mekki-Houcine/blob/main/Slide3.jpg?raw=true'" 
+                                alt="المترشح مكي حسين - كلمة والتزام" 
+                                class="w-full h-[420px] sm:h-[460px] object-cover object-top"
+                            >
+                            <!-- شارة رسمية أسفل الصورة -->
+                            <div class="bg-white/95 backdrop-blur-sm p-4 border-t border-slate-200 flex items-center justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <img src="logo.png" onerror="this.style.display='none'" alt="شعار حركة البناء الوطني" class="w-10 h-10 object-contain shrink-0">
+                                    <div>
+                                        <span class="block text-sm font-extrabold text-emerald-950">مكي حسين</span>
+                                        <span class="block text-xs font-bold text-slate-500">حركة البناء الوطني • غسول</span>
+                                    </div>
+                                </div>
+                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs font-black px-2.5 py-1.5 rounded-xl shrink-0">
+                                    قائمة 04 • رقم 03
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- كلمة المترشح والالتزامات -->
+                <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+                    <div class="inline-flex items-center gap-2 text-emerald-700 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full text-xs font-extrabold">
+                        <span class="w-2 h-2 rounded-full bg-red-600"></span>
+                        <span>المرتبة 03 في القائمة رقم 04 • بلدية غسول</span>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- كلمة المترشح والالتزامات -->
+                <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+                    <div class="inline-flex items-center gap-2 text-emerald-700 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full text-xs font-extrabold">
+                        <span class="w-2 h-2 rounded-full bg-red-600"></span>
+                        <span>كلمة المترشح رقم 03 في القائمة رقم 04 • بلدية غسول</span>
+                    </div>
+
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 leading-snug">
+                        عهدٌ بالعمل الجاد لخدمة <span class="text-emerald-700">بلدية غسول</span> والارتقاء بتنميتها المحلية
+                    </h2>
+
+                    <div class="bg-slate-50 border-r-4 border-amber-400 p-5 sm:p-6 rounded-2xl text-slate-700 leading-relaxed space-y-3 shadow-sm">
+                        <p class="font-medium">
+                            "أهلي وإخواني في بلدية غسول الطيبة، أترشح اليوم ضمن قائمة <strong class="text-emerald-800">حزب حركة البناء الوطني</strong> حاملاً همومكم وتطلعاتكم، ومؤمناً بأن بلديتنا تزخر بطاقات شبابية ومقومات فلاحية وتنموية تستحق تسييراً حديثاً وعادلاً."
+                        </p>
+                        <p class="text-sm text-slate-600">
+                            هدفنا أن نجعل من المجلس الشعبي البلدي فضاءً مفتوحاً لكل مواطن، وأن نترجم الوعود إلى مشاريع ملموسة في الأحياء والقرى والمناطق الفلاحية دون إقصاء أو تأجيل.
+                        </p>
+                    </div>
+
+                    <!-- ركائز الرؤية -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-2xl border border-slate-200 bg-white hover:border-emerald-500 transition flex items-start gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                                <i data-lucide="users" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-slate-900 text-base">القرب والاستماع الدائم</h3>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">لقاءات دورية في كل الأحياء والمداشر لإشراك المواطن في تحديد أولويات التنمية.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl border border-slate-200 bg-white hover:border-amber-500 transition flex items-start gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-slate-900 text-base">الشفافية والحوكمة</h3>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">تسيير نزيه للميزانية البلدية ونشر حصيلة المشاريع المنجزة بكل وضوح.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl border border-slate-200 bg-white hover:border-emerald-500 transition flex items-start gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                                <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-slate-900 text-base">تثمين طاقات الشباب</h3>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">دعم المبادرات الشبانية والجمعوية وتوفير فضاءات الرياضة والثقافة والإبداع.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl border border-slate-200 bg-white hover:border-red-500 transition flex items-start gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="landmark" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-slate-900 text-base">عدالة توزيع المشاريع</h3>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">إنصاف كافة أحياء مركز البلدية والتجمعات الريفية والمحيطات الفلاحية.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. البرنامج الانتخابي التفاعلي لبلدية غسول -->
+    <section id="program" class="py-20 bg-slate-50 border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-emerald-700 font-extrabold text-sm">مشاريع عملية من واقع البلدية</span>
+                <h2 class="text-3xl font-black text-slate-900 mt-1">البرنامج الانتخابي لبلدية غسول</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    اختر المحور للاطلاع على أبرز المشاريع والاقتراحات العملية للنهوض ببلديتنا في مختلف المجالات.
                 </p>
             </div>
 
-            <div class="program-grid">
-
-                <!-- المحور 1 -->
-                <div class="program-card">
-                    <div class="program-card-header">
-                        <span class="icon">🏠</span>
-                        <h3>1. السكن والبناء الريفي</h3>
-                    </div>
-                    <div class="program-card-body">
-                        <div class="program-item">
-                            <div class="program-item-title">توسيع حصص البناء الريفي</div>
-                            <div class="program-item-desc">
-                                العمل على رفع حصة البلدية من إعانات البناء الريفي وتبسيط إجراءات الحصول عليها.
-                            </div>
-                        </div>
-                        <div class="program-item">
-                            <div class="program-item-title">توفير الأوعية العقارية</div>
-                            <div class="program-item-desc">
-                                تهيئة تحصيصات اجتماعية وريفية موجهة للشباب والعائلات ذات الدخل المحدود، مع ضمان ربطها بمختلف الشبكات الحيوية (الماء، الكهرباء، الغاز، والصرف الصحي).
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- المحور 2 -->
-                <div class="program-card">
-                    <div class="program-card-header">
-                        <span class="icon">💧</span>
-                        <h3>2. الفلاحة والموارد المائية</h3>
-                    </div>
-                    <div class="program-card-body">
-                        <div class="program-item">
-                            <div class="program-item-title">حل جذري لمشكل عين غسول</div>
-                            <div class="program-item-desc">
-                                وضع مخطط تقني مستعجل لصيانة وتأهيل منبع "عين غسول" لضمان تدفق المياه وتوزيعها بعدالة ونجاعة سواء للشرب أو للسقي الفلاحي.
-                            </div>
-                        </div>
-                        <div class="program-item">
-                            <div class="program-item-title">دعم الفلاحين</div>
-                            <div class="program-item-desc">
-                                مرافقة الفلاحين في استصلاح الأراضي، فتح المسالك الفلاحية، وتسهيل حصولهم على الكهرباء الفلاحية والدعم التقني لتطوير الإنتاج المحلي.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- المحور 3 -->
-                <div class="program-card">
-                    <div class="program-card-header">
-                        <span class="icon">🛣️</span>
-                        <h3>3. التهيئة العمرانية والمرافق العمومية</h3>
-                    </div>
-                    <div class="program-card-body">
-                        <div class="program-item">
-                            <div class="program-item-title">تزفيت الطرقات وتهيئة الأرصفة</div>
-                            <div class="program-item-desc">
-                                إطلاق برنامج واسع لتعبيد الطرق المهترئة، فك العزلة عن الأحياء والقرى المجاورة، وتهيئة الأرصفة والإنارة العمومية لتحسين الوجه الجمالي للمدينة.
-                            </div>
-                        </div>
-                        <div class="program-item">
-                            <div class="program-item-title">مكتبة عمومية للمطالعة</div>
-                            <div class="program-item-desc">
-                                إنجاز وتجهيز مكتبة بلدية عصرية تكون فضاءً للطلبة والباحثين ومحبي القراءة، وتحتضن الأنشطة الثقافية والفكرية.
-                            </div>
-                        </div>
-                        <div class="program-item">
-                            <div class="program-item-title">محطة لنقل المسافرين</div>
-                            <div class="program-item-desc">
-                                إنشاء وتنظيم محطة برية لنقل المسافرين تتوفر على شروط الراحة والأمن لتنظيم حركة المرور وتسهيل تنقل المواطنين.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- المحور 4 -->
-                <div class="program-card">
-                    <div class="program-card-header">
-                        <span class="icon">🏭</span>
-                        <h3>4. الاقتصاد والتشغيل</h3>
-                    </div>
-                    <div class="program-card-body">
-                        <div class="program-item">
-                            <div class="program-item-title">إعادة بعث مشروع مصنع الآجر</div>
-                            <div class="program-item-desc">
-                                المرافعة الجادة لدى السلطات الولائية والمركزية لرفع العراقيل وإعادة تشغيل مشروع مصنع الآجر المتوقف، باعتباره ركيزة اقتصادية ستوفر عشرات مناصب الشغل المباشرة وغير المباشرة لشباب المنطقة.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- المحور 5 -->
-                <div class="program-card">
-                    <div class="program-card-header">
-                        <span class="icon">🏛️</span>
-                        <h3>5. التراث والسياحة</h3>
-                    </div>
-                    <div class="program-card-body">
-                        <div class="program-item">
-                            <div class="program-item-title">برنامج لترميم القصر القديم</div>
-                            <div class="program-item-desc">
-                                تصنيف وحماية القصر القديم كمعلم تاريخي، وإطلاق أشغال ترميم تحافظ على طابعه المعماري الأصيل لتحويله إلى قطب ثقافي وسياحي يخلق حركية اقتصادية بالمنطقة.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- المحور 6 -->
-                <div class="program-card">
-                    <div class="program-card-header">
-                        <span class="icon">👨‍👩‍👧‍👦</span>
-                        <h3>6. الشباب والتعليم والنقل</h3>
-                    </div>
-                    <div class="program-card-body">
-                        <div class="program-item">
-                            <div class="program-item-title">الشباب والرياضة</div>
-                            <div class="program-item-desc">
-                                تهيئة الملاعب الجوارية ودعم الجمعيات الرياضية والثقافية لاحتواء طاقات الشباب.
-                            </div>
-                        </div>
-                        <div class="program-item">
-                            <div class="program-item-title">قطاع التعليم</div>
-                            <div class="program-item-desc">
-                                تحسين ظروف التمدرس من خلال صيانة المدارس الابتدائية، توفير التدفئة، وتحسين نوعية الوجبات في المطاعم المدرسية.
-                            </div>
-                        </div>
-                        <div class="program-item">
-                            <div class="program-item-title">النقل</div>
-                            <div class="program-item-desc">
-                                تدعيم خطوط النقل الحضري وشبه الحضري، وتوفير النقل المدرسي الكافي لتلاميذ المناطق النائية.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- أزرار التصفية التفاعلية -->
+            <div class="flex flex-wrap justify-center gap-2.5 mb-10" id="program-filters">
+                <button data-filter="all" class="filter-btn bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-sm transition">
+                    الكل
+                </button>
+                <button data-filter="urban" class="filter-btn bg-white text-slate-700 hover:bg-emerald-50 border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-bold transition">
+                    تهيئة حضرية وبنية تحتية
+                </button>
+                <button data-filter="agriculture" class="filter-btn bg-white text-slate-700 hover:bg-emerald-50 border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-bold transition">
+                    دعم الفلاحة والريف
+                </button>
+                <button data-filter="youth" class="filter-btn bg-white text-slate-700 hover:bg-emerald-50 border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-bold transition">
+                    الشباب والرياضة والثقافة
+                </button>
+                <button data-filter="services" class="filter-btn bg-white text-slate-700 hover:bg-emerald-50 border border-slate-200 px-5 py-2.5 rounded-xl text-sm font-bold transition">
+                    الخدمات العمومية والرقمنة
+                </button>
             </div>
-        </div>
-    </section>
 
-    <!-- قسم لماذا مكي حسين -->
-    <section class="why-section" id="why">
-        <div class="container">
-            <h2 class="section-title">لماذا مكي حسين؟</h2>
-            <p class="section-subtitle">لأن غسول تستحق ممثلاً صادقاً في خدمتها</p>
-            <div class="why-list">
-                <div class="why-item">
-                    <span class="check">✔</span>
-                    <p>ابن البلد ويعرف احتياجاتها الحقيقية</p>
+            <!-- شبكة المشاريع -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="program-grid">
+                <!-- مشروع 1 -->
+                <div class="program-card bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition flex flex-col justify-between" data-category="urban">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                                <i data-lucide="droplets" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full">تهيئة حضرية وبنية تحتية</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">تحسين شبكات المياه والإنارة العمومية</h3>
+                        <ul class="space-y-2.5 text-sm text-slate-600">
+                            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> تجديد القنوات المهترئة وضمان التزويد المنتظم بالمياه الصالحة للشرب.</li>
+                            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> تعميم الإنارة العمومية الحديثة (LED) في جميع أحياء وسبل بلدية غسول.</li>
+                            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> صيانة شبكات الصرف الصحي وتهيئة الأرصفة.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="why-item">
-                    <span class="check">✔</span>
-                    <p>برنامج انتخابي واقعي بعيداً عن الوعود المستحيلة</p>
+
+                <!-- مشروع 2 -->
+                <div class="program-card bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-400 transition flex flex-col justify-between" data-category="agriculture">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center">
+                                <i data-lucide="tractor" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full">دعم الفلاحة والريف</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">فك العزلة عن المناطق الفلاحية</h3>
+                        <ul class="space-y-2.5 text-sm text-slate-600">
+                            <li class="flex items-start gap-2"><span class="text-amber-600 font-bold">•</span> فتح وتعبيد المسالك الفلاحية لتسهيل تنقل الفلاحين وتسويق المنتوج.</li>
+                            <li class="flex items-start gap-2"><span class="text-amber-600 font-bold">•</span> مرافقة ملفات الربط بالكهرباء الفلاحية وحفر الآبار الارتوازية.</li>
+                            <li class="flex items-start gap-2"><span class="text-amber-600 font-bold">•</span> دعم الموالين ومربي المواشي وتنظيم الأسواق الأسبوعية.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="why-item">
-                    <span class="check">✔</span>
-                    <p>قريب من الناس، يستمع قبل أن يتكلم</p>
+
+                <!-- مشروع 3 -->
+                <div class="program-card bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition flex flex-col justify-between" data-category="youth">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                                <i data-lucide="trophy" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full">الشباب والرياضة والثقافة</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">فضاءات شبابية وملاعب جوارية</h3>
+                        <ul class="space-y-2.5 text-sm text-slate-600">
+                            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> تهيئة الملاعب الجوارية بالعشب الاصطناعي وإتاحتها لشباب الأحياء.</li>
+                            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> دعم الجمعيات الرياضية والثقافية وتفعيل دور الشباب والمكتبة البلدية.</li>
+                            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> إنشاء مساحات خضراء وفضاءات ترفيهية آمنة للعائلات والأطفال.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="why-item">
-                    <span class="check">✔</span>
-                    <p>مدعوم من حركة البناء الوطني صاحبة التجربة في التسيير المحلي</p>
+
+                <!-- مشروع 4 -->
+                <div class="program-card bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-400 transition flex flex-col justify-between" data-category="services">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center">
+                                <i data-lucide="monitor-smartphone" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full">الخدمات العمومية والرقمنة</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">رقمنة الإدارة وتقريبها من المواطن</h3>
+                        <ul class="space-y-2.5 text-sm text-slate-600">
+                            <li class="flex items-start gap-2"><span class="text-amber-600 font-bold">•</span> عصرنة مصالح الحالة المدنية وتقليص آجال معالجة الملفات الإدارية.</li>
+                            <li class="flex items-start gap-2"><span class="text-amber-600 font-bold">•</span> توفير مكاتب استقبال لائقة مع أولوية لكبار السن وذوي الهمم.</li>
+                            <li class="flex items-start gap-2"><span class="text-amber-600 font-bold">•</span> إطلاق بوابة رقمية للتبليغ الفوري عن الأعطاب والانشغالات البلدية.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="why-item">
-                    <span class="check">✔</span>
-                    <p>ملتزم بالشفافية والمحاسبة في التسيير البلدي</p>
+
+                <!-- مشروع 5 -->
+                <div class="program-card bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition flex flex-col justify-between" data-category="urban">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                                <i data-lucide="route" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full">تهيئة حضرية وبنية تحتية</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-3">تعبيد الطرقات وتحسين النظافة المحيطية</h3>
+                        <ul class="space-y-2.5 text-sm text-slate-600">
+                            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> إعادة الاعتبار للطرقات الحضرية المتدهورة ومداخل البلدية.</li>
+                            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> وضع مخطط منتظم لرفع النفايات المنزلية وتوفير الحاويات بكل حي.</li>
+                            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">•</span> تحسين ظروف النقل المدرسي لفائدة تلاميذ القرى والمناطق البعيدة.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="why-item">
-                    <span class="check">✔</span>
-                    <p>سيعمل مع كل الطاقات الحية في غسول دون إقصاء</p>
+
+                <!-- بطاقة تواصل وطرح مقترح -->
+                <div class="program-card bg-gradient-to-br from-emerald-900 to-emerald-950 text-white rounded-2xl p-7 shadow-md border-b-4 border-amber-400 flex flex-col justify-between" data-category="all">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-400 text-emerald-950 flex items-center justify-center mb-5">
+                            <i data-lucide="lightbulb" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold mb-3">هل لديك مشروع مقترح لغسول؟</h3>
+                        <p class="text-emerald-100 text-sm leading-relaxed">
+                            برنامجنا مفتوح لإثراءات أبناء بلدية غسول. شاركنا فكرتك أو انشغال حيك لإدراجه ضمن أولوياتنا.
+                        </p>
+                    </div>
+                    <button onclick="openActionModal('suggestion')" class="mt-6 w-full bg-amber-400 hover:bg-amber-300 text-emerald-950 font-extrabold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2">
+                        <i data-lucide="message-square-plus" class="w-5 h-5"></i>
+                        <span>أضف مقترحك الآن</span>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم بلدية غسول -->
-    <section class="ghassoul-section" id="ghassoul">
-        <div class="container">
-            <h2>بلدية غسول</h2>
-            <p>
-                تقع بلدية غسول جنوب ولاية البيض، وتبعد عنها بحوالي 43 كلم، وتتربع على مساحة 557 كلم مربع.
-                يبلغ عدد سكانها حوالي 10 آلاف نسمة، وتشتهر بتربية الماشية وزراعة النعناع الذي يُعد من أجود الأنواع محلياً ووطنياً.
-                غسول أرض الطيبة والكرم، وأهلها يستحقون تنمية حقيقية تليق بهم.
-            </p>
-            <div class="ghassoul-stats">
-                <div class="stat-item">
-                    <span class="number">557</span>
-                    <span class="label">كلم² مساحة البلدية</span>
+    <!-- 5. استطلاع تفاعلي: "حدد أولوية بلديتنا غسول" -->
+    <section id="poll" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-950 rounded-3xl p-6 sm:p-10 lg:p-12 text-white shadow-2xl border border-emerald-700/40 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center max-w-2xl mx-auto mb-8 relative z-10">
+                    <span class="inline-flex items-center gap-2 bg-amber-400/20 text-amber-300 text-xs font-extrabold px-4 py-1.5 rounded-full mb-3">
+                        <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                        <span>استشارة شعبية مفتوحة لسكان غسول</span>
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-black">حدد أولوية بلديتنا غسول</h2>
+                    <p class="text-emerald-100/90 text-sm sm:text-base mt-2">
+                        صوّت على الملف الأكثر استعجالاً من وجهة نظرك، وستظهر النتائج المباشرة فوراً ويتم حفظ مشاركتك.
+                    </p>
                 </div>
-                <div class="stat-item">
-                    <span class="number">+10</span>
-                    <span class="label">آلاف نسمة</span>
+
+                <form id="ghassoul-poll-form" class="space-y-4 relative z-10">
+                    <!-- الخيار 1 -->
+                    <label class="poll-option block p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 cursor-pointer transition">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="ghassoul_priority" value="urban" class="w-4 h-4 accent-amber-400" required>
+                                <span class="font-bold text-sm sm:text-base">تحسين التهيئة والطرقات</span>
+                            </div>
+                            <span class="text-sm font-black text-amber-300" id="pct-urban">36%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-black/30 rounded-full overflow-hidden">
+                            <div id="bar-urban" class="h-full bg-amber-400 rounded-full transition-all duration-500" style="width: 36%"></div>
+                        </div>
+                    </label>
+
+                    <!-- الخيار 2 -->
+                    <label class="poll-option block p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 cursor-pointer transition">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="ghassoul_priority" value="agri" class="w-4 h-4 accent-amber-400">
+                                <span class="font-bold text-sm sm:text-base">دعم الفلاحة والمياه</span>
+                            </div>
+                            <span class="text-sm font-black text-amber-300" id="pct-agri">29%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-black/30 rounded-full overflow-hidden">
+                            <div id="bar-agri" class="h-full bg-emerald-400 rounded-full transition-all duration-500" style="width: 29%"></div>
+                        </div>
+                    </label>
+
+                    <!-- الخيار 3 -->
+                    <label class="poll-option block p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 cursor-pointer transition">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="ghassoul_priority" value="youth" class="w-4 h-4 accent-amber-400">
+                                <span class="font-bold text-sm sm:text-base">تشغيل الشباب والمرافق الرياضية</span>
+                            </div>
+                            <span class="text-sm font-black text-amber-300" id="pct-youth">21%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-black/30 rounded-full overflow-hidden">
+                            <div id="bar-youth" class="h-full bg-amber-400 rounded-full transition-all duration-500" style="width: 21%"></div>
+                        </div>
+                    </label>
+
+                    <!-- الخيار 4 -->
+                    <label class="poll-option block p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 cursor-pointer transition">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="ghassoul_priority" value="admin" class="w-4 h-4 accent-amber-400">
+                                <span class="font-bold text-sm sm:text-base">تحسين الخدمات الإدارية والنظافة</span>
+                            </div>
+                            <span class="text-sm font-black text-amber-300" id="pct-admin">14%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-black/30 rounded-full overflow-hidden">
+                            <div id="bar-admin" class="h-full bg-emerald-400 rounded-full transition-all duration-500" style="width: 14%"></div>
+                        </div>
+                    </label>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3">
+                        <button type="submit" id="poll-submit-btn" class="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-emerald-950 font-extrabold px-8 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                            <i data-lucide="check-square" class="w-5 h-5"></i>
+                            <span>تأكيد تصويتي</span>
+                        </button>
+                        <span id="poll-status-text" class="text-xs sm:text-sm text-emerald-200 font-bold">
+                            إجمالي المشاركات: <strong id="total-votes-count" class="text-amber-300">420</strong> صوتاً من أبناء غسول
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. جدول اللقاءات الجوارية والاستماع للمواطنين -->
+    <section id="events" class="py-20 bg-slate-50 border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <span class="text-emerald-700 font-extrabold text-sm">ميدانياً مع أهلنا</span>
+                    <h2 class="text-3xl font-black text-slate-900 mt-1">جدول اللقاءات الجوارية والاستماع للمواطنين</h2>
                 </div>
-                <div class="stat-item">
-                    <span class="number">43</span>
-                    <span class="label">كلم عن مقر الولاية</span>
+                <p class="text-slate-600 text-sm max-w-md">
+                    يشرفنا حضوركم ومشاركتكم في اللقاءات المباشرة عبر مختلف أحياء وقرى بلدية غسول.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- لقاء 1 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-lg">الجمعة القادمة</span>
+                            <span class="text-xs font-bold text-slate-500 flex items-center gap-1">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-600"></i> 17:00 مساءً
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900 mb-2">لقاء جواري مع سكان وسط مدينة غسول</h3>
+                        <p class="text-sm text-slate-600 mb-4">حوار مفتوح حول التهيئة الحضرية، شبكات المياه، وتحسين الخدمات الإدارية والنظافة.</p>
+                        <div class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-red-600 shrink-0"></i>
+                            <span>الساحة العمومية المركزية - بلدية غسول</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleRsvp(this, 'لقاء وسط مدينة غسول')" class="mt-5 w-full py-2.5 px-4 rounded-xl border-2 border-emerald-700 text-emerald-800 font-bold text-sm hover:bg-emerald-700 hover:text-white transition flex items-center justify-center gap-2">
+                        <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                        <span>تأكيد الحضور</span>
+                    </button>
+                </div>
+
+                <!-- لقاء 2 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-extrabold px-3 py-1 rounded-lg">الأحد القادم</span>
+                            <span class="text-xs font-bold text-slate-500 flex items-center gap-1">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-600"></i> 16:30 مساءً
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900 mb-2">جلسة استماع مع الفلاحين والمربين</h3>
+                        <p class="text-sm text-slate-600 mb-4">مناقشة انشغالات المسالك الفلاحية، الكهرباء الريفية، ومرافقة النشاط الفلاحي بالمنطقة.</p>
+                        <div class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-red-600 shrink-0"></i>
+                            <span>مقر دار الشباب - التجمع الريفي غسول</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleRsvp(this, 'جلسة الفلاحين والمربين')" class="mt-5 w-full py-2.5 px-4 rounded-xl border-2 border-emerald-700 text-emerald-800 font-bold text-sm hover:bg-emerald-700 hover:text-white transition flex items-center justify-center gap-2">
+                        <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                        <span>تأكيد الحضور</span>
+                    </button>
+                </div>
+
+                <!-- لقاء 3 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-lg">الثلاثاء القادم</span>
+                            <span class="text-xs font-bold text-slate-500 flex items-center gap-1">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-600"></i> 18:00 مساءً
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900 mb-2">لقاء الشباب والجمعيات المحلية</h3>
+                        <p class="text-sm text-slate-600 mb-4">عرض مقترحات دعم النوادي الرياضية، تهيئة الملاعب الجوارية، وتمكين الشباب.</p>
+                        <div class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-red-600 shrink-0"></i>
+                            <span>قاعة المحاضرات بالمركز الثقافي - غسول</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleRsvp(this, 'لقاء الشباب والجمعيات')" class="mt-5 w-full py-2.5 px-4 rounded-xl border-2 border-emerald-700 text-emerald-800 font-bold text-sm hover:bg-emerald-700 hover:text-white transition flex items-center justify-center gap-2">
+                        <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                        <span>تأكيد الحضور</span>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- التذييل -->
-    <footer class="footer">
-        <div class="container">
-            <div class="party-name">حركة البناء الوطني</div>
-            <div class="slogan">"معاً نواصل البناء"</div>
-            <p style="margin-bottom: 10px;">مكي حسين - مرشح بلدية غسول - انتخابات 28 نوفمبر 2026</p>
-            <p class="copyright">© 2026 جميع الحقوق محفوظة - صفحة المترشح مكي حسين</p>
+    <!-- 7. تذييل الصفحة (Footer) -->
+    <footer class="bg-emerald-950 text-slate-300 border-t-4 border-amber-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <!-- شعار الحزب واسم المترشح -->
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-full bg-white p-1.5 shadow-md shrink-0">
+                        <img src="logo.png" onerror="this.style.display='none'" alt="شعار حركة البناء الوطني" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <span class="block text-xs font-bold text-amber-300">حزب حركة البناء الوطني • القائمة رقم 04</span>
+                        <h3 class="text-xl font-black text-white">المترشح مكي حسين (رقم 03)</h3>
+                        <p class="text-xs text-emerald-200 mt-0.5">المجلس الشعبي البلدي لبلدية غسول</p>
+                    </div>
+                </div>
+
+                <!-- روابط سريعة -->
+                <div class="flex flex-wrap justify-center gap-5 text-sm font-bold">
+                    <a href="#home" class="hover:text-amber-300 transition">الرئيسية</a>
+                    <a href="#about" class="hover:text-amber-300 transition">كلمة المترشح</a>
+                    <a href="#program" class="hover:text-amber-300 transition">البرنامج التنموي</a>
+                    <a href="#poll" class="hover:text-amber-300 transition">أولويات غسول</a>
+                    <a href="#events" class="hover:text-amber-300 transition">اللقاءات الجوارية</a>
+                </div>
+
+                <!-- أزرار التواصل -->
+                <div class="flex flex-col sm:flex-row md:justify-end items-center gap-3">
+                    <button onclick="openActionModal('suggestion')" class="bg-amber-400 hover:bg-amber-300 text-emerald-950 font-extrabold text-sm px-5 py-2.5 rounded-xl transition flex items-center gap-2">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span>تواصل مع المترشح</span>
+                    </button>
+                    <div class="flex items-center gap-2">
+                        <a href="#home" onclick="showToast('صفحة الحملة الرسمية على فيسبوك')" aria-label="فيسبوك" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-amber-400 hover:text-emerald-950 flex items-center justify-center transition">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#home" onclick="showToast('حساب الحملة على إنستغرام')" aria-label="إنستغرام" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-amber-400 hover:text-emerald-950 flex items-center justify-center transition">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-emerald-200/80">
+                <p>الحملة الانتخابية للمجلس الشعبي البلدي - بلدية غسول | قائمة حزب حركة البناء الوطني</p>
+                <p>جميع الحقوق محفوظة © 2026</p>
+            </div>
         </div>
     </footer>
 
+    <!-- 8. نافذة منبثقة (Modal) للتواصل / طرح انشغال أو الانضمام للحملة -->
+    <div id="action-modal" class="fixed inset-0 z-50 hidden bg-emerald-950/75 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border-t-4 border-emerald-600">
+            <button onclick="closeActionModal()" aria-label="إغلاق" class="absolute top-5 left-5 p-2 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <img src="logo.png" onerror="this.style.display='none'" alt="شعار الحزب" class="w-11 h-11 object-contain">
+                <div>
+                    <span class="text-xs font-bold text-emerald-700">حزب حركة البناء الوطني • بلدية غسول</span>
+                    <h3 id="modal-title" class="text-xl font-black text-slate-900">تواصل مع المترشح مكي حسين</h3>
+                </div>
+            </div>
+
+            <!-- أزرار التبديل داخل النافذة -->
+            <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1.5 rounded-xl mb-5">
+                <button type="button" id="tab-suggestion" onclick="switchModalTab('suggestion')" class="py-2 px-3 rounded-lg text-xs sm:text-sm font-extrabold bg-white text-emerald-800 shadow-sm transition">
+                    طرح انشغال أو مقترح
+                </button>
+                <button type="button" id="tab-join" onclick="switchModalTab('join')" class="py-2 px-3 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition">
+                    الانضمام لفريق الحملة
+                </button>
+            </div>
+
+            <form id="modal-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">الاسم واللقب *</label>
+                        <input type="text" required placeholder="أدخل اسمك الكامل" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-emerald-600 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف *</label>
+                        <input type="tel" required placeholder="05XX XX XX XX" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-emerald-600 text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">الحي أو القرية ببلدية غسول *</label>
+                    <input type="text" required placeholder="مثال: وسط المدينة، المحيط الفلاحي..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-emerald-600 text-sm">
+                </div>
+
+                <div id="field-join-role" class="hidden">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">مجال المساهمة في الحملة</label>
+                    <select class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-emerald-600 text-sm bg-white">
+                        <option>العمل الجواري والتواصل مع السكان</option>
+                        <option>التنسيق الشبابي وتنظيم اللقاءات</option>
+                        <option>الإعلام الرقمي والترويج للبرنامج</option>
+                        <option>مراقبة مكاتب الاقتراع</option>
+                    </select>
+                </div>
+
+                <div id="field-message">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">تفاصيل الانشغال أو المقترح *</label>
+                    <textarea rows="3" required placeholder="اكتب رسالتك للمترشح مكي حسين..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-emerald-600 text-sm"></textarea>
+                </div>
+
+                <button type="submit" id="modal-submit-btn" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold py-3 rounded-xl shadow-md transition flex items-center justify-center gap-2 border-b-2 border-amber-400">
+                    <i data-lucide="send" class="w-4 h-4 text-amber-300"></i>
+                    <span>إرسال الرسالة الآن</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- رسالة إشعار فورية (Toast) -->
+    <div id="toast" class="fixed bottom-5 left-5 right-5 sm:left-auto sm:right-6 sm:w-96 z-50 hidden bg-emerald-950 text-white px-5 py-4 rounded-2xl shadow-2xl border-r-4 border-amber-400 flex items-center gap-3 transition-all">
+        <i data-lucide="check-circle-2" class="w-6 h-6 text-amber-400 shrink-0"></i>
+        <span id="toast-message" class="text-sm font-bold leading-snug"></span>
+    </div>
+
+    <script>
+        // تهيئة أيقونات Lucide
+        lucide.createIcons();
+
+        // محاكاة التأشير التوضيحي على ورقة الاقتراع للقائمة رقم 04
+        function simulateBallotMark(num, name) {
+            [1, 2, 3].forEach(i => {
+                const box = document.getElementById(`ballot-box-${i}`);
+                if (box) box.innerHTML = '';
+            });
+            const activeBox = document.getElementById(`ballot-box-${num}`);
+            if (activeBox) {
+                activeBox.innerHTML = '<i data-lucide="check" class="w-5 h-5 stroke-[3]"></i>';
+                lucide.createIcons();
+            }
+            const feedback = document.getElementById('ballot-feedback');
+            if (feedback) {
+                const badge = num === 3 ? ' (مرشحكم الرئيسي)' : '';
+                feedback.textContent = `تم التأشير التوضيحي على الرقم 0${num}: ${name}${badge} ضمن القائمة رقم 04.`;
+            }
+        }
+
+        // 1. قائمة الهواتف
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // 2. نظام الإشعارات الفورية
+        let toastTimer;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('hidden');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.add('hidden'), 4000);
+        }
+
+        // 3. تصفية محاور البرنامج الانتخابي
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const programCards = document.querySelectorAll('.program-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-emerald-700', 'text-white');
+                    b.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+                });
+                btn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+                btn.classList.add('bg-emerald-700', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+                programCards.forEach(card => {
+                    const cat = card.getAttribute('data-category');
+                    if (filter === 'all' || cat === filter || cat === 'all') {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // 4. الاستطلاع التفاعلي مع الحفظ في localStorage
+        const STORAGE_KEY = 'ghassoul_poll_state_v1';
+        let pollState = {
+            votes: { urban: 151, agri: 122, youth: 88, admin: 59 },
+            userChoice: null
+        };
+
+        try {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) pollState = JSON.parse(saved);
+        } catch (e) {}
+
+        function renderPoll() {
+            const total = Object.values(pollState.votes).reduce((a, b) => a + b, 0);
+            document.getElementById('total-votes-count').textContent = total;
+
+            ['urban', 'agri', 'youth', 'admin'].forEach(key => {
+                const pct = total > 0 ? Math.round((pollState.votes[key] / total) * 100) : 0;
+                document.getElementById(`pct-${key}`).textContent = pct + '%';
+                document.getElementById(`bar-${key}`).style.width = pct + '%';
+            });
+
+            if (pollState.userChoice) {
+                const radio = document.querySelector(`input[name="ghassoul_priority"][value="${pollState.userChoice}"]`);
+                if (radio) radio.checked = true;
+                const submitBtn = document.getElementById('poll-submit-btn');
+                submitBtn.innerHTML = '<i data-lucide="check-circle" class="w-5 h-5"></i><span>تم تسجيل صوتك بنجاح</span>';
+                lucide.createIcons();
+            }
+        }
+        renderPoll();
+
+        document.getElementById('ghassoul-poll-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const selected = document.querySelector('input[name="ghassoul_priority"]:checked');
+            if (!selected) return;
+
+            const choice = selected.value;
+            if (pollState.userChoice && pollState.userChoice !== choice) {
+                pollState.votes[pollState.userChoice] = Math.max(0, pollState.votes[pollState.userChoice] - 1);
+                pollState.votes[choice] += 1;
+            } else if (!pollState.userChoice) {
+                pollState.votes[choice] += 1;
+            }
+            pollState.userChoice = choice;
+
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(pollState));
+            } catch (err) {}
+
+            renderPoll();
+            showToast('شكراً لمشاركتك! تم احتساب صوتك في أولويات بلدية غسول.');
+        });
+
+        // 5. تأكيد الحضور في اللقاءات الجوارية
+        function toggleRsvp(btn, eventName) {
+            const confirmed = btn.dataset.confirmed === 'true';
+            if (!confirmed) {
+                btn.dataset.confirmed = 'true';
+                btn.classList.remove('border-emerald-700', 'text-emerald-800');
+                btn.classList.add('bg-emerald-700', 'border-emerald-700', 'text-white');
+                btn.innerHTML = '<i data-lucide="check-circle-2" class="w-4 h-4 text-amber-300"></i><span>تم تأكيد حضورك</span>';
+                showToast(`يسعدنا حضورك! تم تأكيد تسجيلك في: ${eventName}`);
+            } else {
+                btn.dataset.confirmed = 'false';
+                btn.classList.remove('bg-emerald-700', 'border-emerald-700', 'text-white');
+                btn.classList.add('border-emerald-700', 'text-emerald-800');
+                btn.innerHTML = '<i data-lucide="calendar-check" class="w-4 h-4"></i><span>تأكيد الحضور</span>';
+            }
+            lucide.createIcons();
+        }
+
+        // 6. النافذة المنبثقة (Modal) للتواصل أو الانضمام للحملة
+        let currentModalTab = 'suggestion';
+
+        function switchModalTab(tab) {
+            currentModalTab = tab;
+            const tabSuggestion = document.getElementById('tab-suggestion');
+            const tabJoin = document.getElementById('tab-join');
+            const fieldRole = document.getElementById('field-join-role');
+            const fieldMsg = document.getElementById('field-message');
+            const msgTextarea = fieldMsg.querySelector('textarea');
+            const modalTitle = document.getElementById('modal-title');
+            const submitBtn = document.getElementById('modal-submit-btn');
+
+            if (tab === 'join') {
+                tabJoin.classList.add('bg-white', 'text-emerald-800', 'shadow-sm', 'font-extrabold');
+                tabJoin.classList.remove('text-slate-600', 'font-bold');
+                tabSuggestion.classList.remove('bg-white', 'text-emerald-800', 'shadow-sm', 'font-extrabold');
+                tabSuggestion.classList.add('text-slate-600', 'font-bold');
+
+                fieldRole.classList.remove('hidden');
+                msgTextarea.removeAttribute('required');
+                msgTextarea.placeholder = 'ملاحظة إضافية (اختياري)...';
+                modalTitle.textContent = 'انضم لفريق حملة مكي حسين';
+                submitBtn.innerHTML = '<i data-lucide="user-plus" class="w-4 h-4 text-amber-300"></i><span>تأكيد الانضمام للحملة</span>';
+            } else {
+                tabSuggestion.classList.add('bg-white', 'text-emerald-800', 'shadow-sm', 'font-extrabold');
+                tabSuggestion.classList.remove('text-slate-600', 'font-bold');
+                tabJoin.classList.remove('bg-white', 'text-emerald-800', 'shadow-sm', 'font-extrabold');
+                tabJoin.classList.add('text-slate-600', 'font-bold');
+
+                fieldRole.classList.add('hidden');
+                msgTextarea.setAttribute('required', 'required');
+                msgTextarea.placeholder = 'اكتب انشغال حيك أو مقترحك لبلدية غسول...';
+                modalTitle.textContent = 'تواصل مع المترشح مكي حسين';
+                submitBtn.innerHTML = '<i data-lucide="send" class="w-4 h-4 text-amber-300"></i><span>إرسال المقترح الآن</span>';
+            }
+            lucide.createIcons();
+        }
+
+        function openActionModal(tab = 'suggestion') {
+            switchModalTab(tab);
+            document.getElementById('action-modal').classList.remove('hidden');
+        }
+
+        function closeActionModal() {
+            document.getElementById('action-modal').classList.add('hidden');
+        }
+
+        document.getElementById('modal-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            e.target.reset();
+            closeActionModal();
+            if (currentModalTab === 'join') {
+                showToast('أهلاً بك في فريق حملة مكي حسين! سيتواصل معك منسق الحملة بغسول قريباً.');
+            } else {
+                showToast('تم استلام رسالتك ومقترحك بنجاح! شكراً لثقتكم.');
+            }
+        });
+    </script>
 </body>
 </html>
